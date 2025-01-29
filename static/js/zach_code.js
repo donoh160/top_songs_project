@@ -7,17 +7,19 @@ fetch('split_cleaned_df.json')
 
     //Create array to hold artists
     let artistObject = {};
-    let releaseYear = [];
+    let targetYear = 2007;
 
     
     //Create for loop to get all songs release by Artist by year
-    for (let i = 0; i < Object.keys(data); i++) {
-      let releaseYear = data[i].Year
+    for (let i = 0; i < Object.keys(data.Artist); i++) {
+      
+      let year = data[i].Year
 
-      if (releaseYear === targetYear) {
-      // set variables for Year and Artist NAme
-      let  = data[i].year; 
-      let artist = data[i].artist;
+      if (year === targetYear) {
+      // Find artist for each song
+      
+      let artist = data.artist[i];
+      // Check if artist is in Object, add 1
       if (artist in artistObject) {
         artistObject[artist] += 1;
       }
@@ -25,9 +27,7 @@ fetch('split_cleaned_df.json')
       else{
         artistObject[artist] = 1
       }
-  
-
-      }
+    }
   }
 })
 
