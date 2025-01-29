@@ -7,7 +7,8 @@ fetch('split_cleaned_df.json')
 
     //Create array to hold artists
     let artistArray = [];
-    let releaseYear = []
+    let releaseYear = [];
+
     
     //Create for loop to get all songs release by Artist by year
     for (let i = 0; i < data.length; i++) {
@@ -15,9 +16,20 @@ fetch('split_cleaned_df.json')
       // set variables for Year and Artist NAme
       let releaseYear = data[i].year; 
       let artistName = data[i].artist;
-  
+      let totalSongs = artistName++;
+
+
+      
   }
 })
+
+// Graph Top songs by Artist as bar Graph
+let barData = [{
+  type: "bar",
+  x: artistArray,
+  y: totalSongs,
+  horizontal: "h"
+}];
 
 
   .catch(error => {
