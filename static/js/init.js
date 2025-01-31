@@ -18,38 +18,39 @@ years.forEach((year) => {
 
 function duration(targetYear) {
 // Select data from json file
-  fetch('../data/data.json')
+  fetch('static/js/columns_final_df.json')
     .then(response => response.json())
     .then(data => {
 
-      console.log('data')
+      console.log('Duration: data, year, duration')
       console.log(data)
+      console.log(data.Year)
+      console.log(data.Duration)
+
+
 
       // Create Duration Array
       let durArray = []
 
       // Filter songs by Target Year (Will be selected from Dropdown in future)
-      // let targetYear = '2006'
+      let targetYear = 2020
 
       // Loop through each track for selected year
-      for (let i = 0; i < Object.keys(data).length; i++) {
-        let initDate = data['Release Date'][i]
-        let year = initDate.slice(0,4)
+      for (let i = 0; i < Object.keys(data.Duration).length; i++) {
+        let year = data.Year[i]
 
         // Filter by Year
         if (year === targetYear){
           
           // Create array of track durations
-          let dur = data['Duration']
-          for (let i = 0; i < Object.keys(dur).length; i++) {
-            let min = dur[i].slice(0,1)
-            let sec = dur[i].slice(2,)
-            let totalSeconds = parseInt(parseInt(min)*60 + parseInt(sec))
-            durArray.push(totalSeconds)
+          let dur = data.Duration[i]
+          let min = dur.slice(0,1)
+          let sec = dur.slice(2,)
+          let totalSeconds = parseInt(parseInt(min)*60 + parseInt(sec))
+          durArray.push(totalSeconds)
           }
         }
-      }
-        console.log('durationArray')
+        console.log('Duration: durationArray')
         console.log(durArray)
 
       // Graph track durations as histogram
@@ -58,15 +59,13 @@ function duration(targetYear) {
         type: 'histogram',
       };
       var data = [trace];
-      Plotly.newPlot('durations', data);
+      Plotly.newPlot('bubble', data);
     })
     .catch(error => {
       // Handle any errors
       console.error('Error:', error);
     });
-    console.log(targetYear)
-};
-
+  };
 
 function yearChanged(selectedYear){
   // // ok i don't understand what to do here
