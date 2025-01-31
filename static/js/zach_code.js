@@ -1,5 +1,5 @@
 // Fetch the JSON
-fetch('split_cleaned_df.json')
+fetch('static/js/split_cleaned_df.json')
   .then(response => response.json())
   .then(data => {
     // Do something with the JSON data
@@ -34,8 +34,8 @@ fetch('split_cleaned_df.json')
 // Graph Top songs by Artist as bar Graph
 let barData = [{
   type: "bar",
-  x: artistArray,
-  y: totalSongs,
+  x: artistObject,
+  y: targetYear,
   horizontal: "h"
 }];
 
