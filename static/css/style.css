@@ -1,0 +1,29 @@
+/* this is my scratchpad for css testing stuff lalalala */
+
+body {
+    background-color: whitesmoke;
+    font-family:Verdana, Geneva, Tahoma, sans-serif;
+    color: black;
+    margin: .25in;
+}
+
+#genre {
+    color: purple;
+}
+
+#artist {
+    color:purple;
+}
+
+.blurb {
+    padding: 20px; /* pad the border */
+    border-style: solid;
+    border-width: 3px;
+    border-radius: 10px;
+    border-color: mediumseagreen;
+}
+
+hr.rounded {
+    border: 3px solid purple;
+    border-radius: 10px;
+}
