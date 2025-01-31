@@ -26,21 +26,27 @@ fetch('static/js/split_cleaned_df.json')
       // Found new artist, create key and set to one
       else{
         artistObject[artist] = 1
+        }
       }
     }
-  }
+  // Graph Top songs by Artist as bar Graph
+  let barData = [{
+    type: "bar",
+    x: artistObject,
+    y: targetYear,
+    orientation: "h"
+  }];
+
+  // Create layout to format graph
+  let layout = {
+    title: `Top Songs by Artist in ${targetYear}`,
+    xaxis: {title: 'Number of Songs in Top 100'},
+    yaxis: {title: 'Artist'}
+  };
+  // Plot the graph
+  Plotly.newPlot('Artists', barData, layout);
 })
-
-// Graph Top songs by Artist as bar Graph
-let barData = [{
-  type: "bar",
-  x: artistObject,
-  y: targetYear,
-  horizontal: "h"
-}];
-
-
+// Handle any errors
   .catch(error => {
-    // Handle any errors
-    console.error('Error:', error);
+  console.error('Error:', error);
   });
