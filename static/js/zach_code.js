@@ -6,7 +6,7 @@ fetch('static/js/columns_final_df.json')
     console.log(data);
 
     //Create array to hold artists
-    let artistArray = [{}];
+    let artistObject = [{'Artist': 'Placeholder', "Frequency": 0}];
     let targetYear = 2007;
 
     
@@ -17,50 +17,84 @@ fetch('static/js/columns_final_df.json')
       let year = data.Year[i]
       if (year === targetYear) {
 
+      //Initialize dummy variable
+      let located = true
+
       // Find artist for each song
       let artist = data.artist[i];
 
-      for (let i = 0; i < artistArray.length; i++) {
+      //Check if artist is already logged
+      for (let i = 0; i < artistObject.length; i++) {
       
-      // Check if artist is in Object, add 1
-      if (artist in artistArray[i]) {
-        artistObject[i][artist] += 1
+      // Artist found -> Increment by 1
+      if (artist === artistArray[i]['Artist']) {
+        artistObject[i]['Frequency'] += 1
         break
       }
-      // Found new artist, create key and set to one
-      else{
-        artistArray[artist] = 1
-        }
+      // Artist not found -> Add new artist outside of loop
+      if (i === (artistObject.length - 1)){
+        located = false
       }
     }
 
-  // Define Variables to capture total songs per year
-  let arr = Object.entries(artistArray)
-  let frequencies = []
-  
-  // For loop to grab frequency of Artist in top 100
-  for (let i = 0; i < arr.length; i++) {
-    frequencies.push(arr[i][1])
+    // Add new artist to object
+    if (located === false){
+    artistObject.push({'Artist': artist, 'Frequency': 1})
+    }
   }
+}
+  // Sort by decending frequency
+  artistObject.sort((a, b) => b.Frequency - a.Frequency);
+  console.log('sorted artistObj', artistObject)
+
+  // Take all Artists with more than 1 song
+  artistObject = artistObject.filter(artist => artist.Frequency>1)
+  console.log('>1 Song', artistObject)
+
+  // Create arrays for artists and frequencies
+  let artistArr = []
+  let freqArr = []
+  for (let i = 0; i < artistObject.length; i++) {
+    artistArr.push(artistObject[i]['Artist'])
+    freqArr.push(artistObject[i]['Frequency'])
+  }
+  console.log(artistArr)
+  console.log(freqArr)
+  
+
 
   // Graph Top songs by Artist as bar Graph
   let barData = [{
     type: "bar",
-    x: artist.keys(artistArray).slice(0,10).reverse(),
-    y: frequencies.slice(0,10).reverse(),
-    orientation: "h"
+    x: artistArr,
+    y: freqArr,
+    // orientation: "h"
   }];
 
   // Create layout to format graph
   let layout = {
-    title: `Top Songs by Artist in ${targetYear}`,
-    xaxis: {title: 'Artist'},
-    yaxis: {title: 'Number of Songs in Top 100'}
+    title: {
+      text: `Top Songs by Artist in ${targetYear}`
+    },
+    xaxis: {
+      title: {
+        text: 'Number of Songs in Top 100'
+      }
+    },
+    yaxis: {
+      title: {
+        text: 'Artist'
+      }
+    }
   };
+
   // Plot the graph
-  Plotly.newPlot('Artists', barData, layout);
-}})
+  Plotly.newPlot('bar', barData, layout);
+})
+
 // Handle any errors
   .catch(error => {
   console.error('Error:', error);
   });
+
+zachsCode()
