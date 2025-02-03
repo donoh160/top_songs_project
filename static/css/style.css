@@ -1,5 +1,3 @@
-/* this is my scratchpad for css testing stuff lalalala */
-
 body {
     background-color: whitesmoke;
     font-family:Verdana, Geneva, Tahoma, sans-serif;
@@ -16,7 +14,7 @@ body {
 }
 
 .blurb {
-    padding: 20px; /* pad the border */
+    padding: 20px;
     border-style: solid;
     border-width: 3px;
     border-radius: 10px;

@@ -17,7 +17,7 @@ years.forEach((year) => {
     chosen.text(year)
 });
 
-
+// function when an option is chosen from the dropdown
 function yearChanged(selectedYear){
   duration(parseInt(selectedYear))
 };
@@ -33,10 +33,10 @@ function duration(targetYear) {
     .then(response => response.json())
     .then(data => {
 
-      console.log('Duration: data, year, duration')
-      console.log(data)
-      console.log(data.Year)
-      console.log(data.Duration)
+      // console.log('Duration: data, year, duration')
+      // console.log(data)
+      // console.log(data.Year)
+      // console.log(data.Duration)
 
       // Create Duration Array
       let durArray = []
@@ -72,3 +72,15 @@ function duration(targetYear) {
       console.error('Error:', error);
     });
   };
+
+
+
+// --------------------------------------------------------------------------
+// ARTIST
+// --------------------------------------------------------------------------
+
+
+
+// --------------------------------------------------------------------------
+// POPULARITY
+// --------------------------------------------------------------------------
