@@ -220,7 +220,7 @@ function popularity(targetYear) {
 
           // Loop through data and filter by selected year
           Object.keys(data.Year).forEach(index => {
-              if (data.Year[index] == selectedYear) {
+              if (data.Year[index] == targetYear) {
                   titles.push(data.Title[index]);
                   ranks.push(data.Rank[index]);
                   popularities.push(data.Popularity[index]);
@@ -251,7 +251,7 @@ function popularity(targetYear) {
           let layout = {
               paper_bgcolor: 'rgba(240,240,240,0.9)',  // Light gray background
               plot_bgcolor: 'white',  // White chart background
-              title: `Song Rankings and Popularity in ${selectedYear}`,
+              title: `Song Rankings and Popularity in ${targetYear}`,
               width: 1000,
               height: 750,
               xaxis:{ title: {text: 'Song Title'},
