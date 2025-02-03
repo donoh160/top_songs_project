@@ -29,7 +29,7 @@ function yearChanged(selectedYear){
 
 function duration(targetYear) {
 // Select data from json file
-  fetch('../../columns_final_df.json')
+  fetch('../columns_final_df.json')
     .then(response => response.json())
     .then(data => {
 
