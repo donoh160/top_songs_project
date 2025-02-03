@@ -1,5 +1,6 @@
-// // CREATE YEAR DROPDOWN
-// // --------------------------------------------------------------------------
+// --------------------------------------------------------------------------
+// CREATE YEAR DROPDOWN
+// --------------------------------------------------------------------------
 
 // create the year array
 let years = []
@@ -16,9 +17,19 @@ years.forEach((year) => {
     chosen.text(year)
 });
 
+
+function yearChanged(selectedYear){
+  duration(parseInt(selectedYear))
+};
+
+
+// --------------------------------------------------------------------------
+// DURATION
+// --------------------------------------------------------------------------
+
 function duration(targetYear) {
 // Select data from json file
-  fetch('static/js/columns_final_df.json')
+  fetch('../../columns_final_df.json')
     .then(response => response.json())
     .then(data => {
 
@@ -27,13 +38,8 @@ function duration(targetYear) {
       console.log(data.Year)
       console.log(data.Duration)
 
-
-
       // Create Duration Array
       let durArray = []
-
-      // Filter songs by Target Year (Will be selected from Dropdown in future)
-      let targetYear = 2020
 
       // Loop through each track for selected year
       for (let i = 0; i < Object.keys(data.Duration).length; i++) {
@@ -65,13 +71,4 @@ function duration(targetYear) {
       // Handle any errors
       console.error('Error:', error);
     });
-  };
-
-function yearChanged(selectedYear){
-  // // ok i don't understand what to do here
-  // // adjust plots accordingly.
-  // // assign the chosen dropdown year to a variable
-      // let targetYear = targetYear;
-      // console.log(`lalala ${selectedYear}`)
-    duration(selectedYear)
   };
