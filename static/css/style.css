@@ -36,5 +36,15 @@ hr.rounded {
     border-style: dotted;
     border-width: 2px;
     border-radius: 8px;
-    border-color: lightcoral;
+    border-color: purple;
+}
+
+/* Hide by default, then make visible when class is added */
+.simpleblurb {
+    display: none;  
+}
+
+
+.simpleblurb.visible {
+    display: block; 
 }

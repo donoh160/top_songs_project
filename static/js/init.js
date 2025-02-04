@@ -1,3 +1,17 @@
+// Flag to track if the dropdown has been changed at least once
+let isFirstChange = true;
+
+document.getElementById('dropdown').addEventListener('change', function() {
+    if (isFirstChange) {
+        var simpleBlurb = document.querySelector('.simpleblurb');
+        
+        // Add the 'visible' class to show the .simpleblurb
+        simpleBlurb.classList.add('visible');
+        
+        // Set the flag to false so it doesn't toggle again
+        isFirstChange = false;
+    }
+});
 
 // --------------------------------------------------------------------------
 // CREATE YEAR DROPDOWN FOR HTML
@@ -36,10 +50,10 @@ function yearChanged(selectedYear){
   let durationHeader = `Duration`;
   document.getElementById('duration').innerHTML = durationHeader;
 
-  let popularHeader = `Popularity Then vs. Now`;
+  let popularHeader = `Current Popularity`;
   document.getElementById('popularity').innerHTML = popularHeader;
 
-  let artistHeader = `Most Popular Artists of ${selectedYear}`;
+  let artistHeader = `Artists`;
   document.getElementById('artist').innerHTML = artistHeader;
 
 };
