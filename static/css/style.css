@@ -5,15 +5,24 @@ body {
     margin: .25in;
 }
 
-#genre {
-    color: purple;
+.dropdown {
+    text-align: center;
 }
 
-#artist {
-    color:purple;
+
+/* purple line divider */
+
+hr.rounded {
+    border: 3px solid purple;
+    border-radius: 10px;
 }
+
+
+
+/* text boxes */
 
 .blurb {
+    text-align: left;
     padding: 20px;
     border-style: solid;
     border-width: 3px;
@@ -21,7 +30,11 @@ body {
     border-color: mediumseagreen;
 }
 
-hr.rounded {
-    border: 3px solid purple;
-    border-radius: 10px;
+.simpleblurb {
+    text-align: left;
+    padding: 10px;
+    border-style: dotted;
+    border-width: 2px;
+    border-radius: 8px;
+    border-color: lightcoral;
 }

@@ -1,5 +1,6 @@
+
 // --------------------------------------------------------------------------
-// CREATE YEAR DROPDOWN
+// CREATE YEAR DROPDOWN FOR HTML
 // --------------------------------------------------------------------------
 
 // create the year array
@@ -17,19 +18,37 @@ years.forEach((year) => {
     chosen.text(year)
 });
 
+  
+// --------------------------------------------------------------------------
+// CREATE YEAR DROPDOWN FUNCTION
+// --------------------------------------------------------------------------
+
 // function when an option is chosen from the dropdown
 function yearChanged(selectedYear){
   duration(parseInt(selectedYear)) // ethan
   artist(parseInt(selectedYear)) // zach
-  // topTen(parseInt(selectedYear))
+  topTen(parseInt(selectedYear))
   popularity(parseInt(selectedYear)) // jonathan
+  
+  let topTenHeader = `Top 10 Songs of ${selectedYear}`;
+  document.getElementById('topTenHeader').innerHTML = topTenHeader;
+
+  let durationHeader = `Duration`;
+  document.getElementById('duration').innerHTML = durationHeader;
+
+  let popularHeader = `Popularity Then vs. Now`;
+  document.getElementById('popularity').innerHTML = popularHeader;
+
+  let artistHeader = `Most Popular Artists of ${selectedYear}`;
+  document.getElementById('artist').innerHTML = artistHeader;
+
 };
 
 
 // --------------------------------------------------------------------------
 // DURATION
 // --------------------------------------------------------------------------
-
+// change whenever updated: pathname, targetYear/selectedYear
 function duration(targetYear){
   // Select data from json file
   fetch('../columns_final_df.json')
@@ -286,4 +305,36 @@ function popularity(targetYear) {
 
           Plotly.newPlot('chart', dataPlot, layout);
       });
+}
+
+
+// --------------------------------------------------------------------------
+// TOP TEN
+// --------------------------------------------------------------------------
+
+function topTen(targetYear){
+  fetch('../columns_final_df.json')
+  .then(response => response.json())
+  .then(data => {
+
+    let yearIndex = (targetYear - 2006)*100
+    topSongArr = []
+    for (let i = 0; i < 10; i++) {
+      topSongArr.push({'Artist': data.Artist[yearIndex+i], 'Title': data.Title[yearIndex+i], 'Rank': data.Rank[yearIndex+i]})
+    }
+    console.log(topSongArr)
+
+
+    // Use d3 to select the panel with id of `#sample-metadata`
+    let sample_metadata = d3.select(`#sample-metadata`);
+
+    // Use `.html("") to clear any existing metadata
+    sample_metadata.html("")
+
+    // Append key and property of each object to metadata panel
+    topSongArr.forEach((k) => {
+      let displaySample = sample_metadata.append("li")
+      displaySample.text(`${k.Title} - ${k.Artist}`)
+    });
+  })
 }
