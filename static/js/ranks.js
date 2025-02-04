@@ -38,7 +38,10 @@ function updateChart() {
             // Loop through data and filter by selected year
             Object.keys(data.Year).forEach(index => {
                 if (data.Year[index] == selectedYear) {
-                    titles.push(data.Title[index]);
+                // Combine Title + Artist to differentiate songs with the same title   
+                let songLabel = `${data.Title[index].substring(0, 15)}... - ${data.Artist[index]}`;
+
+                    titles.push(songLabel);
                     ranks.push(data.Rank[index]);
                     popularities.push(data.Popularity[index]);
                 }
@@ -53,22 +56,28 @@ function updateChart() {
                 marker: { color: 'green' },
                 yaxis: 'y1',
                 offsetgroup: 1,
+                hoverinfo: 'y',
             };
 
             let trace2 = {
                 x: titles,
-                y: ranks,
+                y: ranks.map(r => 101 - r),  // Keep Rank values positive
+                base: ranks.map(r => r),  // Start bars from the bottom going up
+                text: ranks.map(r => `${r}`),  // Show correct Rank values
                 type: 'bar',
                 name: 'Rank',
                 marker: { color: 'red', opacity: 0.7 },
                 yaxis: 'y2',
                 offsetgroup: 2,
+                hoverinfo: 'text',  // Removes extra text in hover
             };
 
+            console.log(titles, ranks, popularities);
+
             let layout = {
-                paper_bgcolor: 'rgba(240,240,240,0.9)',  // Light gray background
+                paper_bgcolor: 'rgba(240,240,240,0.9)',  // Light gray boarder
                 plot_bgcolor: 'white',  // White chart background
-                title: `Song Rankings and Popularity in ${selectedYear}`,
+                title: `Hot 100 Rankings and Spotify Popularity in ${selectedYear}`,
                 width: 1000,
                 height: 750,
                 xaxis:{ title: {text: 'Song Title'},
@@ -92,8 +101,8 @@ function updateChart() {
                     title: 'Rank',
                     overlaying: 'y',
                     side: 'right',
-                    range: [1, 100], // Rank starts at 1 (removes 0)
-                    tickmode: 'linear', // Keeps ticks evenly spaced
+                    range: [100, 1],  // Flip the Rank axis (100 at bottom, 1 at top)
+                    tickmode: 'linear',
                     dtick: 10 // Adjusts tick spacing 
                 },
                 barmode: 'group'
@@ -107,3 +116,4 @@ function updateChart() {
 
 // Add a div to hold the chart
 document.body.innerHTML += '<div id="chart"></div>';
+
