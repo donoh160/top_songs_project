@@ -25,7 +25,7 @@ I created the artist funciton in the init.js file. My project mate Ethan helped 
 <br><br>
 
 ## Ethan Donoho
-I created the duration_analysis.ipynb file and the duration and top_10 functions inside of app.js which is used to display the webpage. 
+I created the duration_analysis.ipynb file and the duration and top_10 functions inside of init.js which is used to display the webpage. 
 <br><br>
 duration_analysis.ipynb is a notebook which finds trends between song duration between the years of 2006 and 2024. A scatterplot is created with a regression line. Further analysis is found inside the file. 
 <br><br>
