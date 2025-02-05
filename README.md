@@ -99,6 +99,9 @@ In order to use the Spotify API I needed to first create a Spotify Developer acc
 Once the api was ran I put all the data into a dataframe. I removed the release date and added 2006 to the first 100 rows and had the years increase by 1 every 100 rows. I also iterated through the rows to make sure to add the rank 1-100 for each 100 rows.
 <br><br>
 
+#### Class Presentation:
+https://docs.google.com/presentation/d/10DpXcco3zRQMG7XDBgQU8RN6CtoOsb8WpDq_QCEjPQQ/edit#slide=id.g32f5106d6c5_5_137
+
 #### Citations
 https://stackoverflow.com/questions/65435932/spotify-api-authorization-code-flow-with-python
 https://stackoverflow.com/questions/69457719/trouble-iterating-through-pandas-dataframe-and-executing-spotify-api
