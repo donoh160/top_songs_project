@@ -100,16 +100,16 @@ Once the api was ran I put all the data into a dataframe. I removed the release 
 <br>
 
 #### Citations
-[](https://stackoverflow.com/questions/65435932/spotify-api-authorization-code-flow-with-python)
-[](https://stackoverflow.com/questions/69457719/trouble-iterating-through-pandas-dataframe-and-executing-spotify-api)
-[](https://developer.spotify.com/documentation/web-api/reference/get-several-audio-features)
-[](https://developer.spotify.com/documentation/web-api/concepts/api-calls#response-status-codes)
-[](https://www.artist.tools/features/spotify-popularity-index)
-[](https://www.youtube.com/watch?v=WAmEZBEeNmg&t=1032s)
-[](https://github.com/guoguo12/billboard-charts)
-[](https://spotipy.readthedocs.io/en/2.25.0/)
-[](https://medium.com/@rachit.lsoni/scraping-song-lyrics-a-fun-and-practical-guide-c0b07e8e7312)
-[](https://www.androidpolice.com/spotify-new-api-terms-third-party-apps/)
+https://stackoverflow.com/questions/65435932/spotify-api-authorization-code-flow-with-python
+https://stackoverflow.com/questions/69457719/trouble-iterating-through-pandas-dataframe-and-executing-spotify-api
+https://developer.spotify.com/documentation/web-api/reference/get-several-audio-features
+https://developer.spotify.com/documentation/web-api/concepts/api-calls#response-status-codes
+https://www.artist.tools/features/spotify-popularity-index
+https://www.youtube.com/watch?v=WAmEZBEeNmg&t=1032s
+https://github.com/guoguo12/billboard-charts
+https://spotipy.readthedocs.io/en/2.25.0/
+https://medium.com/@rachit.lsoni/scraping-song-lyrics-a-fun-and-practical-guide-c0b07e8e7312
+https://www.androidpolice.com/spotify-new-api-terms-third-party-apps/
 
 
 
