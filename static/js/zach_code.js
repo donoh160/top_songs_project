@@ -1,51 +1,61 @@
-// Fetch the JSON
-fetch('static/js/columns_final_df.json')
+function zachsCode(){
+  fetch('static/js/columns_final_df.json')
   .then(response => response.json())
   .then(data => {
     // Do something with the JSON data
-    console.log(data);
+    console.log('data', data);
 
     //Create array to hold artists
-    let artistObject = [{'Artist': 'Placeholder', "Frequency": 0}];
-    let targetYear = 2007;
-
+    let artistObject = [{'Artist': 'Placeholder', 'Frequency': 0}];
+    let targetYear = 2006;
     
     //Create for loop to get all songs release by Artist by year
     for (let i = 0; i < Object.keys(data.Artist).length; i++) {
       
-      //Check year
+      // Check Year
       let year = data.Year[i]
       if (year === targetYear) {
 
-      //Initialize dummy variable
-      let located = true
+        // Initialize dummy variable
+        let located = true
 
-      // Find artist for each song
-      let artist = data.artist[i];
+        // Find artist of given song
+        let artist = data.Artist[i];
+        
+        // Check if artist is already logged
+        for (let i = 0; i < (artistObject.length); i++) {
+          
+          // Artist found -> Increment by 1
+          if (artist === artistObject[i]['Artist']) {
+            artistObject[i]['Frequency'] += 1
+            break
+          }
+          
+          // Artist not found -> Add new artist outside of loop
+          if (i === (artistObject.length - 1)){
+            located = false
+          }
+        }
 
-      //Check if artist is already logged
-      for (let i = 0; i < artistObject.length; i++) {
-      
-      // Artist found -> Increment by 1
-      if (artist === artistArray[i]['Artist']) {
-        artistObject[i]['Frequency'] += 1
-        break
-      }
-      // Artist not found -> Add new artist outside of loop
-      if (i === (artistObject.length - 1)){
-        located = false
-      }
-    }
-
-    // Add new artist to object
-    if (located === false){
-    artistObject.push({'Artist': artist, 'Frequency': 1})
+        // Add new artist to object
+        if (located === false){
+        artistObject.push({'Artist': artist, 'Frequency': 1})
+        }
     }
   }
-}
+
+
+  // Remove Placeholder
+  artistObject = artistObject.slice(1,)
+  console.log('artistObj', artistObject)
+
   // Sort by decending frequency
   artistObject.sort((a, b) => b.Frequency - a.Frequency);
   console.log('sorted artistObj', artistObject)
+
+  // Take top 10 Artists
+  // artistObject = artistObject.slice(0,10)
+  // console.log('artistObj', artistObject)
 
   // Take all Artists with more than 1 song
   artistObject = artistObject.filter(artist => artist.Frequency>1)
@@ -96,5 +106,6 @@ fetch('static/js/columns_final_df.json')
   .catch(error => {
   console.error('Error:', error);
   });
+}
 
 zachsCode()
