@@ -10,10 +10,10 @@ body {
 }
 
 
-/* purple line divider */
+/* pink line divider */
 
 hr.rounded {
-    border: 3px solid purple;
+    border: 3px solid hotpink;
     border-radius: 10px;
 }
 
@@ -36,7 +36,7 @@ hr.rounded {
     border-style: dotted;
     border-width: 2px;
     border-radius: 8px;
-    border-color: purple;
+    border-color: hotpink;
 }
 
 /* Hide by default, then make visible when class is added */
