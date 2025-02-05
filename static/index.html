@@ -1,12 +1,4 @@
-
-
-<!--    edit meeeeeee -->
-    <!-- copied from 14-3-activity10 for reference -->
-
-    <!-- this is messy rn it will be cleaner before we turn it in, dw -->
-
-
-    <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -20,35 +12,58 @@
 </head>
 
 <body>
-    <h1>Billboard Hot 100 Stats 2006–2024</h1>
-    <p class="blurb">this is a test text box. ignore me</p>
+    <div class="title">
+        <div class="blurb">
+            <h1>Billboard Hot 100 Stats 2006–2024</h1>
+            <hr class="rounded">
+            <p><i>Yearly Hot 100 data depicting song length, artists with the most hits, and current Spotify streaming popularity</i></p>
+        </div>
+    </div>
 
-    <select id="dropdown" onchange="yearChanged(this.value)"></select>
+    <div class="dropdown">
+        <p><i>Choose a year:</i></p>
+        <select id="dropdown" onchange="yearChanged(this.value)">
+            <option disabled selected value> - </option>
+        </select>        
 
-    <h2>Duration</h2>
-        <p> &emsp; [Song length analysis]</p>
-        <div id="durations"></div>
+        <div class="data">
+            <div id="topTen">
+                <h2 id="topTenHeader"></h2>
+                <div class="simpleblurb">
+                    <ol id="sample-metadata"></ol>
+                </div>
+            </div>
+            
+            <div>
+                <h2 id="duration"></h2>
+                <div id="bubble"></div>
+            </div>
+            
+            <div>
+                <h2 id="artist"></h2>
+                <div id="bar"></div>
+            </div>
 
+            <div>
+                <h2 id="popularity"></h2>
+                <div id="chart"></div>
+            </div>            
+            
+        </div>
+    </div>
 
-    <h2>Genre growth</h2>
-        <p> &emsp; here are some words to describe our thoughts on genre.</p>
-        <p id="genre"> &emsp; [*placeholder text for the genre plot. blahblahblahblah*] </p>
-    
-    <h2>Artist popularity</h2>
-        <p id="artist"> &emsp; here is where we will talk about artists!</p>
-    <hr class="rounded">
+    <div class="sources">
+        <hr style="border: 1px solid hotpink; border-radius: 10px; margin-top: 100px;">
+        <div>Data Sources:
+            <ul>
+                <li> <a href="https://developer.spotify.com/documentation/web-api">Spotify API</a> </li>
+                <li> <a href="http://github.com/guoguo12/billboard-charts">Billboard Python Library</a> </li>
+            </ul>
 
-    <!-- SOURCES -->
-    <div class="blurb">Sources:
-        <ul>
-            <li> <a href="https://developer.spotify.com/documentation/web-api">Spotify API</a> </li>
-            <li> <a href="http://github.com/guoguo12/billboard-charts">github / billboard.py library </a> </li>
-            <li> <a> [additional sources] </li>
-        </ul>
+        </div>
     </div>
 
     <script src="js/init.js"></script>
-    <!-- <script src="js/init.js"></script> -->
 
 </body>
 

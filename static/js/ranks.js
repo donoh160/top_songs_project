@@ -117,3 +117,4 @@ function updateChart() {
 // Add a div to hold the chart
 document.body.innerHTML += '<div id="chart"></div>';
 
+
