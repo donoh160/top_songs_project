@@ -65,7 +65,7 @@ function yearChanged(selectedYear){
 // change whenever updated: pathname, targetYear/selectedYear
 function duration(targetYear){
   // Select data from json file
-  fetch('../data/columns_final_df.json')
+  fetch('data/columns_final_df.json')
     .then(response => response.json())
     .then(data => {
 
@@ -132,7 +132,7 @@ function duration(targetYear){
 // --------------------------------------------------------------------------
 
 function artist(targetYear){
-  fetch('../data/columns_final_df.json')
+  fetch('data/columns_final_df.json')
   .then(response => response.json())
   .then(data => {
 
@@ -243,7 +243,7 @@ function artist(targetYear){
 // --------------------------------------------------------------------------
 
 function popularity(targetYear) {
-  fetch('../data/columns_final_df.json')
+  fetch('data/columns_final_df.json')
   .then(response => response.json())
   .then(data => {
       let titles = [];
@@ -334,7 +334,7 @@ function popularity(targetYear) {
 // --------------------------------------------------------------------------
 
 function topTen(targetYear){
-  fetch('../data/columns_final_df.json')
+  fetch('data/columns_final_df.json')
   .then(response => response.json())
   .then(data => {
 
