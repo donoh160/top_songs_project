@@ -1,7 +1,7 @@
 # top_songs_project
 
 ## Overview
-This repo was created in collaboration with Makenna Vick, Jonathon Bidon, Zach Rehfuss, DuVoe Moua, and Ethan Donoho. The purpose of this project is to analyze the "Billboard Hot 100" songs from the years 2006 to 2024. A webpage that displays yearly song data can be accessed via https://donoh160.github.io/top_songs_project/ (or on the repo home page). The analysis folder contains three python files that provide further analysis. The roles of each of the project members is outlined below. 
+This repo was created in collaboration with Makenna Vick, Jonathan Bidon, Zach Rehfuss, DuVoe Moua, and Ethan Donoho. The purpose of this project is to analyze the "Billboard Hot 100" songs from the years 2006 to 2024. A webpage that displays yearly song data can be accessed via https://donoh160.github.io/top_songs_project/ (or on the repo home page). The analysis folder contains three python files that provide further analysis. The roles of each of the project members is outlined below. 
 <br><br>
 
 ## Makenna Vick
