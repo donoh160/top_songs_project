@@ -15,7 +15,7 @@ The popularity function inside the init.js file is used to create a dual y-axis 
 <br><br>
 The ranks_analysis.ipynb is a Jupyter Notebook file that shows the scatter plots for each year to find the correlation coefficient for each year of data we have. You can edit the year of each scatter plot by switching the year in the third cell.
 <br><br>
-Then to take it a step further, I created another scatter plot that combines all the years together to shows the correlation coefficient, regression equation, and the r^2 value. You can find further analysis in the notebook file at the bottom.
+To take it a step further, I created another scatter plot that combines all the years together to show the correlation coefficient, regression equation, and the r^2 value. You can find the full analysis in the notebook file at the bottom.
 <br><br>
 I collaborated with all members of the group, as well as our TA Jordan Tompkins, a tutor from our bootcamp, and utilized the Xpert Learning Assistant.
 <br><br>
